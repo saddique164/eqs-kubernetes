@@ -24,13 +24,14 @@ pipeline {
 
                                 steps {
                                 sh label: '', script: 'python --version'
+                                sh label: '', script: 'scp /ansible/roles/nginx.yaml ubuntu@54.213.167.104:/nginx/'
                                 ansiblePlaybook inventory: '/etc/ansible/hosts', playbook: "${env.playbook_path}"
                                  }
                         }
 			stage ('deploy nginx pod in the cluster'){
                                agent {node { label "Kubernetes-cluster" }}
                                 steps {
-                                 sh label: '', script: 'scp /ansible/roles/nginx.yaml ubuntu@54.213.167.104:/nginx/'
+                                
                                  sh label: '', script: 'echo Saddique'
 
 
