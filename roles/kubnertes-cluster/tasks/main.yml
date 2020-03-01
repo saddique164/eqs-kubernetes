@@ -31,7 +31,7 @@
   apt: pkg=apt-transport-https state=installed
 
 - name: "Installing kubernetes"
-  apt: name={{item}} private=yes state=installed
+  apt: name={{item}}  state=installed
   with_items:
     - kubelet
     - kubeadm
