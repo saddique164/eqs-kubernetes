@@ -69,6 +69,9 @@
     - network
 
 - name: "Configuring single node cluster"
+  become: yes
+  become_user: ubuntu
+  become_method: sudo
   shell: kubectl taint nodes --all node-role.kubernetes.io/master-
   tags:
     - configured
