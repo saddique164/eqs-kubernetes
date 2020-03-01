@@ -54,8 +54,8 @@
 
 - name: "Configuring kubectl"
   shell: mkdir -p $HOME/.kube;sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config;sudo chown $(id -u):$(id -g) $HOME/.kube/config
-      tags:
-      - config-cahnged
+  tags:
+    - config-cahnged
 
 - name: "Configuring kubernetes network"
   shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
