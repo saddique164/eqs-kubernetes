@@ -42,7 +42,8 @@
   shell:  swapoff -a
 
 - name: "Reset kubernetes"
-  shell: kubeadm reset
+  shell: kubeadm reset --force
+  ignore_errors: True
   tags:
     - reset
 
