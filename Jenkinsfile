@@ -8,7 +8,7 @@ pipeline {
      git_repo = "git@github.com:saddique164/eqs-kubernetes-eqs.git"
      node_name = "master"
      playbook_path = "/jenkins-home/workspace/eqs-kubernetes-pipeline/roles/playbook.yaml"
-	 nginx_deployment = "/jenkins-home/workspace/eqs-kubernetes-pipeline/roles/nginx.yaml"
+	// nginx_deployment = "/jenkins-home/workspace/eqs-kubernetes-pipeline/roles/nginx.yaml"
         }
 
             stages {
@@ -28,11 +28,13 @@ pipeline {
                                  }
                         }
 						stage ('deploy nginx pod in the cluster'){
-
+                               agent {node { label "Kubernetes-cluster" }}
                                 steps {
-                                sh label: '', script: 'kubectl apply -f  "${env.nginx_deployment}"'
+							    sh label: '', script: 'wget https://github.com/saddique164/eqs-kubernetes-eqs/blob/master/roles/nginx.yaml'
+								sh label: '', script: 'kubectl apply -f  nginx.yaml'
                                  }
                         }
 						
             }
   }
+
