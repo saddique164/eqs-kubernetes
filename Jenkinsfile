@@ -30,8 +30,8 @@ pipeline {
 						stage ('deploy nginx pod in the cluster'){
                                agent {node { label "Kubernetes-cluster" }}
                                 steps {
-							    sh label: '', script: 'wget https://github.com/saddique164/eqs-kubernetes-eqs/blob/master/roles/nginx.yaml'
-								sh label: '', script: 'kubectl apply -f  nginx.yaml'
+							    //sh label: '', script: 'wget https://github.com/saddique164/eqs-kubernetes-eqs/blob/master/roles/nginx.yaml'
+							//	sh label: '', script: 'kubectl apply -f  nginx.yaml'
                                  }
                         }
 						

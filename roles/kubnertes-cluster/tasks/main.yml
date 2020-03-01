@@ -53,7 +53,10 @@
     - modified
 
 - name: "Configuring kubectl"
-  shell: mkdir -p $HOME/.kube;sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config;sudo chown $(id -u):$(id -g) $HOME/.kube/config;sudo chmod -R 777 $HOME/.kube/config
+  become: yes
+  become_user: ubuntu
+  become_method: sudo
+  shell: mkdir -p $HOME/.kube;sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config;sudo chown $(id -u):$(id -g) $HOME/.kube/config
   tags:
     - config-cahnged
 
