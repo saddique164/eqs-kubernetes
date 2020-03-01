@@ -61,6 +61,9 @@
     - config-cahnged
 
 - name: "Configuring kubernetes network"
+  become: yes
+  become_user: root
+  become_method: sudo
   shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
   tags:
     - network
