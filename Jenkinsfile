@@ -27,9 +27,10 @@ pipeline {
                                 ansiblePlaybook inventory: '/etc/ansible/hosts', playbook: "${env.playbook_path}"
                                  }
                         }
-						stage ('deploy nginx pod in the cluster'){
+			stage ('deploy nginx pod in the cluster'){
                                agent {node { label "Kubernetes-cluster" }}
                                 steps {
+                                 sh label: '', script: 'echo Saddique'
 
 
                                  }
