@@ -48,7 +48,7 @@
     - reset
 
 - name: "Initializing kubernetes"
-  shell: kubeadm init --pod-network-cidr=192.168.0.0/16
+  shell: kubeadm init --pod-network-cidr=10.244.0.0/16
   tags:
     - modified
 
@@ -58,7 +58,7 @@
     - config-cahnged
 
 - name: "Configuring kubernetes network"
-  shell: kubectl apply -f https://docs.projectcalico.org/v3.0/getting-started/kubernetes/installation/hosted/kubeadm/1.7/calico.yaml
+  shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
   tags:
     - network
 
