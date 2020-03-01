@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null
@@ -20,9 +20,6 @@ spec:
       containers:
       - image: nginx
         name: nginx
-        envFrom:
-      - configMapRef:
-          name: nginx-config
         livenessProbe:
           httpGet:
              path: /
