@@ -32,7 +32,8 @@ pipeline {
                                agent {node { label "Kubernetes-cluster" }}
                                 steps {
                                  sh label: '', script: 'kubectl apply -f /nginx/nginx.yaml'
-                                 sh label: '', script: 'chmod -R 777 /nginx/nginx.yaml'                 
+                                 sh label: '', script: 'chmod -R 777 /nginx/nginx.yaml'
+                                 sh label: '', script: 'kubectl create configmap nginx-config --from-literal=NGINX_PORT=80'                 
                                  sh label: '', script: 'echo Saddique'
 
 

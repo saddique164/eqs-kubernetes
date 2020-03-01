@@ -20,6 +20,9 @@ spec:
       containers:
       - image: nginx
         name: nginx
+        envFrom:
+        - configMapRef:
+             name: nginx-config
         livenessProbe:
           httpGet:
              path: /
